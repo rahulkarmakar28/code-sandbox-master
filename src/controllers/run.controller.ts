@@ -11,7 +11,7 @@ export const runCode = async (req: Request, res: Response): Promise<any> => {
         if (!supported_languages.includes(language)) return res.status(400).json({ error: "Unsupported language" });
 
         redisClient.lPush("submission", JSON.stringify({ code, language, roomID }))
-
+        console.log("job pushed")
         return res.status(201).json({
             success: true, message: "submission received"
         })

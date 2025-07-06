@@ -13,6 +13,7 @@ export const initRedis = () => {
   redisClient.on('error', (err) => console.error('Redis Client Error', err));
 
   redisClient.connect();
+  console.log("redis client connected")
   return redisClient;
 }
 
@@ -29,5 +30,6 @@ export const initSubscriberRedis = () => {
   subClient.on('error', (err) => console.error('Redis Subscriber Error', err));
 
   subClient.connect();
+  console.log("subscriber client connected")
   return subClient;
 }
