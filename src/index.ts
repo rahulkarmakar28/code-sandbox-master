@@ -28,7 +28,9 @@ registerSocketHandlers(io);
 
 app.use(cors({
     origin: `${process.env.FRONTEND_URL}`,
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
 app.use(rateLimiter)
 app.use(express.json());
